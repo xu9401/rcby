@@ -1,0 +1,18 @@
+
+如何检测是否支持 TUN 模块？
+执行命令：
+cat /dev/net/tun
+如果返回信息为：cat: /dev/net/tun: File descriptor in bad state 说明正常
+
+如何检测是否支持 ppp 模块？
+执行命令：
+cat /dev/ppp
+如果返回信息为：cat: /dev/ppp: No such device or address 说明正常
+当然，脚本在安装时也会执行检查，如果不适用于安装，脚本会予以提示
+
+更新你的系统： 运行 yum update后重启
+
+wget https://git.io/vpnsetup-centos -O vpnsetup.sh && sudo \
+VPN_IPSEC_PSK='qwertyui' \
+VPN_USER='root' \
+VPN_PASSWORD='qwertyui' sh vpnsetup.sh
