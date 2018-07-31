@@ -1,0 +1,55 @@
+1、SSH 登录到 VPS，vi 打开 / etc/sysconfig/network-scripts/ifcfg-eth0
+
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+原来内容：
+DEVICE="eth0"
+BOOTPROTO="dhcp"
+ONBOOT="yes"
+TYPE="Ethernet"
+NM_CONTROLLED="no"
+
+将 dhcp 改为 static：
+DEVICE="eth0"
+BOOTPROTO="static"
+ONBOOT="yes"
+TYPE="Ethernet"
+NM_CONTROLLED="no"
+
+然后添加原来的主 IP 地址，格式：
+IPADDR=[mainip]
+NETMASK=[netmask]
+GATEWAY=[gateway]
+
+加好后的完整内容为（mainip、netmask、gateway 替换成 IPV4 列表里的 main IP 的参数）：
+DEVICE="eth0"
+BOOTPROTO="static"
+ONBOOT="yes"
+TYPE="Ethernet"
+NM_CONTROLLED="no"
+IPADDR=108.61.xxx.xxx
+NETMASK=255.255.254.0
+GATEWAY=108.61.xxx.xxx
+
+保存后，运行命令在线激活配置：
+ifup eth0
+
+系统返回类似下面语句，说明配置正确：
+RTNETLINK answers: File exists
+
+2、创建一个文件：/etc/sysconfig/network-scripts/ifcfg-eth0:1
+vi /etc/sysconfig/network-scripts/ifcfg-eth0:1
+添加如下内容（IPADDR 是刚购买的 IP 地址），保存：
+
+DEVICE=eth0:1
+BOOTPROTO=static
+IPADDR=108.61.xxx.xxx
+ONBOOT=yes
+
+3、使 IP 生效，执行
+ifup eth0:1
+
+系统返回类似下面语句，说明配置正确：
+Determining if ip address 108.61.xxx.xxx is already in use for device eth0...
+RTNETLINK answers: File exists
+
+执行后，ping 这个新的 IP，通了，就说明配置成功了。
