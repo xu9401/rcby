@@ -10,6 +10,8 @@ cat /dev/ppp
 如果返回信息为：cat: /dev/ppp: No such device or address 说明正常
 当然，脚本在安装时也会执行检查，如果不适用于安装，脚本会予以提示
 
+
+安装wget包 ：yum -y install wget（有些有有些没有）
 更新你的系统： 运行 yum update后重启
 
 wget https://git.io/vpnsetup-centos -O vpnsetup.sh && sudo \
