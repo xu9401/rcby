@@ -1,5 +1,8 @@
-
-安装wget包 ：yum -y install wget（有些有有些没有）
+# CentOS系统:
+yum install -y wget
+ 
+# Debian/Ubuntu系统:
+apt-get install -y wget（有些有有些没有）
 
 注意：如果你安装的有我的另一个 ssr.sh 脚本，请先卸载ShadowsocksR服务端，再安装这个脚本（不能共存）！
 
