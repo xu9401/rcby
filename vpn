@@ -16,5 +16,5 @@ cat /dev/ppp
 
 wget https://git.io/vpnsetup-centos -O vpnsetup.sh && sudo \
 VPN_IPSEC_PSK='qwertyui' \
-VPN_USER='kerwin' \
+VPN_USER='vpn' \
 VPN_PASSWORD='qwertyui' sh vpnsetup.sh
