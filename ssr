@@ -15,3 +15,25 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 运行脚本，
 
 bash ssrmu.sh
+
+--------------------------------------------------------------------------------------------
+
+系统要求：CentOS 6+ / Debian 7+ / Ubuntu 14.04 +
+
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/ss-go.sh && chmod +x ss-go.sh && bash ss-go.sh
+
+管理    ./ss-go.sh
+
+启动：/etc/init.d/ss-go start
+
+停止：/etc/init.d/ss-go stop
+
+重启：/etc/init.d/ss-go restart
+
+查看状态：/etc/init.d/ss-go status
+
+安装目录：/usr/local/shadowsocks-go
+
+配置文件：/usr/local/shadowsocks-go/shadowsocks-go.conf
+
+日志文件：/usr/local/shadowsocks-go/shadowsocks-go.log
